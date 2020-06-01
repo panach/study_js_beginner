@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>테스트</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to top, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+        }
+        .tump {
+            height: 200px;
+            margin: 20px;
+            padding: 10px 16px;
+            color: #f1f1f1;
+            background: #ce7c7c;
+            opacity: .5;
+        }
+        .header {
+            padding: 10px 16px;
+            margin: 20px;
+            background: #555;
+            color: #f1f1f1;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            margin: 0;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="tump">더미 공간</div>
+    <div class="tump">더미 공간</div>
+    <div class="header" id="myHeader">
+        <h2>해더상태  : <span id="status">none</span> / window 스크롤 값 : <span id="num">0</span></h2>
+    </div>
+    스크롤시  헤더의 위치값보다 window 스크롤이  크면 header에 fixed 추가
+    작으면 삭제
+
+    <div class="tump">더미 공간</div>
+    <div class="tump">더미 공간</div>
+    <div class="tump">더미 공간</div>
+    <div class="tump">더미 공간</div>
+    <div class="tump">더미 공간</div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <script>
+        window.onscroll = () => {myFunction()};
+        const header = document.getElementById("myHeader");
+        const num =  document.getElementById("num");
+        const header_status =  document.getElementById("status");
+        let fixed = header.offsetTop;
+
+        myFunction = () => {
+            num.innerHTML = window.pageYOffset;
+
+            if (window.pageYOffset > fixed) {
+                header.classList.add("fixed");
+                header_status.innerHTML = 'fixed 추가';
+            } else {
+                header.classList.remove("fixed");
+                header_status.innerHTML = 'fixed 삭제';
+            }
+        }
+    </script>
+</body>
+</html>

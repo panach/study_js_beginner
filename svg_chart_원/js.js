@@ -9,7 +9,7 @@ var continents = {
   cc: 200,
   dd: 40,
   ee: 560,
-  ff: 500
+  ff: 600
 };
 var cont2 = 40;
 

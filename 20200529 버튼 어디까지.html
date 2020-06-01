@@ -1,0 +1,87 @@
+@@include('common/head.html')
+
+<body>
+    @@include('common/skip_nav.html')
+    <div id="wrap">
+        @@include('common/header.html', {
+        "classname" : "",
+        "display" : "none"
+        })
+        <hr />
+        <style>
+            .test_wrap{
+                padding: 100px;
+                height: 500px;
+                text-align: center;
+            }
+            .btn_list {
+                display: inline-block;
+                background-color: #fff;
+                padding: 30px;
+                font-size: 20px;
+            }
+            .btn_list.on {
+                background-color: lightcoral;
+            }
+            .send_btn {
+                margin-top: 100px;
+                background-color: #fff;
+                padding: 30px;
+                font-size: 20px;
+            }
+        </style>
+        <div class="test_wrap">
+            <div class="button_wrap">
+                <button class="btn_list on">1</button>
+                <button class="btn_list">2</button>
+                <button class="btn_list">3</button>
+                <button class="btn_list">4</button>
+                <button class="btn_list">5</button>
+                <button class="btn_list">6</button>
+                <button class="btn_list">7</button>
+                <button class="btn_list">8</button>
+                <button class="btn_list">9</button>
+                <button class="btn_list">10</button>
+            </div>
+            <button class="send_btn">활성화 버튼</button>
+            <script>
+                const btnlist = document.querySelectorAll('.btn_list');
+                const btnsend = document.querySelectorAll('.send_btn')[0];
+                let btnNum;
+                //let buttonRun = btnlist.map( function(element, index, array){
+                //    console.log(element, index, array);
+                //});
+ 
+                let btnLength = (...args) => {
+                    console.log(args[0], args[1])
+
+                    btnNum = args[0] + 1;
+
+                    for (let i = 0; i < args[1]; i++) { // 1~10까지 초기화
+                        console.log(i);
+                        btnlist[i].classList.remove('on');
+                    }
+                    for (let i = 0; i <= args[0]; i++) { // 클릭된 만큼 클래스 제어
+                        console.log(i);
+                        btnlist[i].classList.add('on')
+                    }
+                }
+                let btnRunner = Object.keys(btnlist).map( (ele, index, array) => {
+                    btnlist[index].addEventListener('click', () => { //버튼마다 이벤트
+                        btnLength(index, array.length);
+                    } )
+                } )
+
+                btnsend.addEventListener('click', () => {
+                    if( btnNum < 9){}
+                    if( btnNum = 9){}
+                    console.log(btnNum);
+                })
+
+            </script>
+        </div>
+
+    </div>
+</body>
+
+</html>
